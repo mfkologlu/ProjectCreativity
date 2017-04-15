@@ -1,5 +1,5 @@
 # ProjectCreativity
 
 ## Gulp
-To enable gulp command,\n
+To enable gulp command,
  - npm install --global gulp-cli
