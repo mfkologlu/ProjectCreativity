@@ -1,19 +1,36 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="app">
 
 <head>
     <title>Project Creativity</title>
     <meta charset="utf-8" />
     <script src="./external/angular.js"></script>
+    <script src="app.js"/>
 </head>
 
 <body>
     <div>
-		<form >
-			<textarea placeholder="Buna sar." ng-model="textArea"></textarea>
-			<h1>{{textArea}}</h1>
-		</form>
+        <form>
+            <textarea placeholder="Buna sar." ng-model="textArea"></textarea>
+            <h1>{{textArea}}</h1>
+        </form>
     </div>
+    <section ng-controller="ViewController as view">
+        <ul>
+            <li>
+                <a href ng-click="view.setActiveView(1)">Writing Desk</a>
+            </li>
+            <li>
+                <a href ng-click="view.setActiveView(2)">Draft Drawer</a>
+            </li>
+        </ul>
+        <div ng-show="view.isActiveView(1)">
+          <h4>Writing Desk</h4>
+        </div>
+        <div ng-show="view.isActiveView(2)">
+          <h4>Draft Drawer</h4>
+        </div>
+    </section>
 </body>
 
 </html>
