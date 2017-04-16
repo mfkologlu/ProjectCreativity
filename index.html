@@ -1,37 +1,29 @@
 <!DOCTYPE html>
-<html ng-app="projectCreativity">
+<html>
 
 <head>
     <title>Project Creativity</title>
     <meta charset="utf-8" />
     <script src="./external/angular.js"></script>
     <script src="./node_modules/angular-route/angular-route.js"></script>
-    <script src="app.js"/>
+    <script src="./app.js"></script>
+    <script src="./views/writing_desk/writing_desk.js"></script>
 </head>
 
-<body>
-    <div>
-        <form>
-            <textarea placeholder="Buna sar." ng-model="textArea"></textarea>
-            <h1>{{textArea}}</h1>
-        </form>
-    </div>
+<body ng-app="app">
     <section ng-controller="ViewController as view">
         <ul>
             <li>
-                <a href ng-click="view.setActiveView(1)">Writing Desk</a>
+                <a href="" ng-click="view.setActiveView(1)">Writing Desk</a>
             </li>
             <li>
-                <a href ng-click="view.setActiveView(2)">Draft Drawer</a>
+                <a href="" ng-click="view.setActiveView(2)">Draft Drawer</a>
             </li>
         </ul>
-        <div ng-show="view.isActiveView(1)">
-          <h4>Writing Desk</h4>
-        </div>
-        <div ng-show="view.isActiveView(2)">
-          <h4>Draft Drawer</h4>
-        </div>
+        <h4 ng-show="view.isActiveView(1)">Writing Desk</h4>
+        <h4 ng-show="view.isActiveView(2)">Draft Drawer</h4>
     </section>
+    <div ng-view></div>
 </body>
 
 </html>

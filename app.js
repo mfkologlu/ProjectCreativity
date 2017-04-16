@@ -1,13 +1,23 @@
-var app = angular.module('projectCreativity', ["ngRoute"]);
+(function () {
+    var app = angular.module('app', [
+        'ngRoute',
+        'app.writingDesk'])
+        
+        .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+            $locationProvider.hashPrefix('!');
+            $routeProvider.otherwise({ redirectTo: '/writing_desk' });
+        }])
 
-app.controller('ViewController', function () {
-    this.activeView = 1;
+        .controller('ViewController', function () {
+            this.activeView = 1;
 
-    this.isActiveView = function (view) {
-        return activeView == view;
-    };
+            this.isActiveView = function (view) {
+                return this.activeView === view;
+            };
 
-    this.setActiveView = function (view) {
-        this.activeView = view;
-    }
-});
+            this.setActiveView = function (view) {
+                this.activeView = view;
+            }
+        });
+})();
+
