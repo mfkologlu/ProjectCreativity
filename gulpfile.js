@@ -7,6 +7,8 @@
             'css/**/*.css',
             'js/**/*.js',
             '*.js',
+            'views/**/*.html',
+            'views/**/*.js',
             'index.html'
         ];
 
