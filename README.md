@@ -1,5 +1,8 @@
 # ProjectCreativity
 
 ## Gulp
-To enable gulp command,
+Enable gulp commands.
  - npm install --global gulp-cli
+
+ Live mode.
+ - gulp browser-sync
