@@ -1,4 +1,4 @@
-var app = angular.module('projectCreativity', []);
+var app = angular.module('projectCreativity', ["ngRoute"]);
 
 app.controller('ViewController', function () {
     this.activeView = 1;
