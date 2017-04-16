@@ -14,5 +14,7 @@
                 baseDir: './'
             }
         });
+
+        gulp.watch(files).on('change', browserSync.reload);
     });
 })();

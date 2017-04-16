@@ -1,4 +1,4 @@
-var app = angular.module('app', []);
+var app = angular.module('projectCreativity', []);
 
 app.controller('ViewController', function () {
     this.activeView = 1;
