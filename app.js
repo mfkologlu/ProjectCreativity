@@ -1,13 +1,9 @@
-(function () {
-    var app = angular.module('app', [
-        'ngRoute',
-        'app.writingDesk',
-        'app.draftDrawer'
-        ])
-        
-        .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
-            $locationProvider.hashPrefix('!');
-            $routeProvider.otherwise({ redirectTo: '/writing_desk' });
-        }])
-})();
+// app.js
+var express = require('express');
+var app = express();
+var db = require('./db');
 
+var BookController = require('./api/controllers/BookController');
+app.use('/books', BookController);
+
+module.exports = app;

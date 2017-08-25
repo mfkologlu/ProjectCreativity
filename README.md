@@ -2,9 +2,13 @@
 ## Node
 Download and install Node and Npm from https://nodejs.org/en/.
 
-## Gulp
+## Install dependencies
 Enable gulp commands.
- - npm install --global gulp-cli
+ - npm install 
+ 
+ 
 
- Live mode.
- - gulp browser-sync
+## Run server
+Enable gulp commands.
+ - npm run start 
+

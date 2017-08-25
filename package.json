@@ -1,0 +1,34 @@
+{
+  "name": "project-creativity",
+  "version": "1.0.0",
+  "description": "A game to enhance your writing skills",
+  "main": "app.js",
+  "dependencies": {
+    "angular-route": "^1.6.3",
+    "body-parser": "^1.17.2",
+    "browser-sync": "^2.18.8",
+    "express": "^4.15.4",
+    "gulp": "^3.9.1",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mfkologlu/ProjectCreativity.git"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "Arnold Asllani,M. Firat Kologlu\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mfkologlu/ProjectCreativity/issues"
+  },
+  "homepage": "https://github.com/mfkologlu/ProjectCreativity#readme"
+}
