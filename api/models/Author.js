@@ -38,5 +38,5 @@ var AuthorSchema = new mongoose.Schema({
     }
     // TODO: Add genre skills.
 });
-mongoose.model('Review', AuthorSchema);
-module.exports = mongoose.model('Review');
+mongoose.model('Author', AuthorSchema);
+module.exports = mongoose.model('Author');

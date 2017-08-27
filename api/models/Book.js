@@ -10,5 +10,5 @@ var BookSchema = new mongoose.Schema({
     type: String
   }
 });
-mongoose.model('Review', BookSchema);
-module.exports = mongoose.model('Review');
+mongoose.model('Book', BookSchema);
+module.exports = mongoose.model('Book');
