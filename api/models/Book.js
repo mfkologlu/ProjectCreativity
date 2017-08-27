@@ -6,10 +6,9 @@ var BookSchema = new mongoose.Schema({
   genre: {
     type: String
   },
-
   author: {
     type: String
   }
 });
-mongoose.model('Book', BookSchema);
-module.exports = mongoose.model('Book');
+mongoose.model('Review', BookSchema);
+module.exports = mongoose.model('Review');
