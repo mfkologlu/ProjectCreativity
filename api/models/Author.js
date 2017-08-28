@@ -1,42 +1,35 @@
 var mongoose = require('mongoose');
-var AuthorSchema = new mongoose.Schema({
-    name: {
-        type: String
-    },
-    dateOfCreation: {
-        type: Date
-    },
-    creativitySkill: {
-        type: Number
-    },
-    creativityTitle: {
-        type: String
-    },
-    grammarSkill: {
-        type: Number
-    },
-    grammarTitle: {
-        type: String
-    },
-    vocabularySkill: {
-        type: Number
-    },
-    vocabularyTitle: {
-        type: String
-    },
-    dialogueSkill: {
-        type: Number
-    },
-    dialogueTitle: {
-        type: String
-    },
-    depictionSkill: {
-        type: Number
-    },
-    depictionTitle: {
-        type: String
-    }
-    // TODO: Add genre skills.
+var defaultSkills = require('./DefaultSkills');
+
+//Embedded skill schema for Author
+var SkillSchema = new mongoose.Schema({
+    skillNumber: Number,
+    skillType: String,
+    skillName: String,
+    skillValue: Number,
+    SkillBadge: String
 });
+
+var AuthorSchema = new mongoose.Schema({
+    name: String,
+    lastname: String,
+    username: String,
+    password: String,
+    skills: {
+        type: [SkillSchema],
+        default: defaultSkills
+    },
+    created_date:{
+        type:Date,
+        default:Date.now
+    },
+    isCritic: {
+        type: Boolean,
+        default: false
+    }
+
+});
+
 mongoose.model('Author', AuthorSchema);
+
 module.exports = mongoose.model('Author');
