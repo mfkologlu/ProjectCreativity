@@ -1,79 +1,56 @@
 var assert = require('assert');
 var Author = require('../api/models/Author');
+var DefaultSkills = require('../api/utils/DefaultSkills');
 
 describe('Author Model test suite', function () {
+    function makeAuthor() {
+        var newAuthor = new Author({
+            name: 'name',
+            lastname: 'lastname',
+            username: 'user_name',
+            password: 'password'
 
+        });
+
+        return newAuthor;
+    }
 
     it('Create a new author', function (done) {
-
-        var newAuthor = new Author({
-            name: 'Arnold',
-            lastname: 'Asllani',
-            username: 'lordchaos',
-            password: 'akjsdhfjudasf'
-
-        });
-
+        var newAuthor = makeAuthor();
         newAuthor.save().then(function () {
             assert(!newAuthor.isNew);
-            assert(newAuthor.skills.length == 14);
+            assert(newAuthor.skills.length == DefaultSkills.length);
             done();
         });
-
     });
-
 
     it('Find one author by Name', function (done) {
-        var newAuthor = new Author({
-            name: 'Arnold',
-            lastname: 'Asllani',
-            username: 'lordchaos',
-            password: 'akjsdhfjudasf'
-
-        });
-
+        var newAuthor = makeAuthor();
         newAuthor.save().then(function () {
-            Author.findOne({ name: 'Arnold' }).then(function (result) {
-                assert(result.name === 'Arnold');
-                assert(result.skills.length === 14);
+            Author.findOne({ name: 'name' }).then(function (result) {
+                assert(result.name === 'name');
+                assert(result.skills.length === DefaultSkills.length);
                 done();
             });
         });
     });
 
-
-    var newAuthorForIdTest;
     it('Find one author by ID', function (done) {
-        newAuthorForIdTest = new Author({
-            name: 'Arnold',
-            lastname: 'Asllani',
-            username: 'lordchaos',
-            password: 'akjsdhfjudasf'
-
-        });
-
-        newAuthorForIdTest.save().then(function () {
-            Author.findOne({ _id: newAuthorForIdTest._id }).then(function (result) {
-                assert(result.name === 'Arnold');
-                assert(result.skills.length === 14);
+        var newAuthor = makeAuthor();
+        newAuthor.save().then(function () {
+            Author.findOne({ _id: newAuthor._id }).then(function (result) {
+                assert(result.name === newAuthor.name);
+                assert(result.skills.length === DefaultSkills.length);
                 done();
             });
         });
     });
-
 
     it('Delete an author', function (done) {
-        var newAuthor = new Author({
-            name: 'Arnold',
-            lastname: 'Asllani',
-            username: 'lordchaos',
-            password: 'akjsdhfjudasf'
-
-        });
-
+        var newAuthor = makeAuthor();
         newAuthor.save().then(function () {
-            Author.findOneAndRemove({ name: 'Arnold' }).then(function () {
-                Author.findOne({ name: 'Arnold' }).then(function (result) {
+            Author.findOneAndRemove({ name: newAuthor.name }).then(function () {
+                Author.findOne({ name: newAuthor.name }).then(function (result) {
                     assert(result === null);
                     done();
                 });
@@ -81,20 +58,11 @@ describe('Author Model test suite', function () {
         });
     });
 
-
     it('Update author attributes', function (done) {
-        var newAuthor = new Author({
-            name: 'Arnold',
-            lastname: 'Asllani',
-            username: 'lordchaos',
-            password: 'akjsdhfjudasf'
-
-        });
-
+        var newAuthor = makeAuthor();
         newAuthor.save().then(function () {
-
-            Author.findOneAndUpdate({ name: 'Arnold' }, { lastname: 'Anonymous', username: 'lordkronos' }).then(function () {
-                Author.findOne({ name: 'Arnold' }).then(function (result) {
+            Author.findOneAndUpdate({ name: newAuthor.name }, { lastname: 'Anonymous', username: 'lordkronos' }).then(function () {
+                Author.findOne({ name: newAuthor.name }).then(function (result) {
                     assert(result.lastname === 'Anonymous');
                     assert(result.username === 'lordkronos');
                     done();
@@ -103,34 +71,19 @@ describe('Author Model test suite', function () {
         });
     });
 
-
     it('Update author skills by skillNumber', function (done) {
-        var newAuthor = new Author({
-            name: 'Arnold',
-            lastname: 'Asllani',
-            username: 'lordchaos',
-            password: 'akjsdhfjudasf'
-
-        });
-        //skill number 3 corresponds to Vocabulary skill
-        var SKILL_NUMBER = 3;
+        var newAuthor = makeAuthor();
         newAuthor.save().then(function () {
-            Author.findOne({ name: 'Arnold' }).then(function (result) {
-
-                result.skills[SKILL_NUMBER - 1].skillValue += 1;
-
+            Author.findOne({ name: newAuthor.name }).then(function (result) {
+                result.skills[0].skillValue += 1;
                 result.save().then(function () {
-                    Author.findOne({ name: 'Arnold' }).then(function (result) {
-                        assert(result.skills[SKILL_NUMBER - 1].skillValue === 3);
-                        assert(result.skills[SKILL_NUMBER - 1].skillName === 'Vocabulary');
+                    Author.findOne({ name: newAuthor.name }).then(function (result) {
+                        assert(result.skills[0].skillValue === 1);
+                        assert(result.skills[0].skillName === DefaultSkills[0].skillName);
                         done();
                     });
                 });
-
-
             });
-
         });
     });
-
 });
