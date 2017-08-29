@@ -37,4 +37,19 @@ describe('Book Model test suite', function () {
             });
         });
     });
+
+    it('Delete books of an author', function (done) {
+        var newBook1 = makeBook();
+        newBook1.save();
+
+        var newBook = makeBook();
+        newBook.save().then(function () {
+            Book.remove({ authorId: newBook.authorId }).then(function () {
+                Book.findOne({ authorId: newBook.authorId }).then(function (result) {
+                    assert(result === null);
+                    done();
+                });
+            });
+        });
+    });
 });
