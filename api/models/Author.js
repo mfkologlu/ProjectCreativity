@@ -6,8 +6,9 @@ var SkillSchema = new mongoose.Schema({
     skillNumber: Number,
     skillType: String,
     skillName: String,
+    skillLevel: String,
     skillValue: Number,
-    SkillBadge: String
+    skillTitle: String
 });
 
 var AuthorSchema = new mongoose.Schema({
@@ -16,18 +17,17 @@ var AuthorSchema = new mongoose.Schema({
     username: String,
     password: String,
     skills: {
-        type: [ SkillSchema],
+        type: [SkillSchema],
         default: defaultSkills
     },
-    created_date:{
-        type:Date,
-        default:Date.now
+    created_date: {
+        type: Date,
+        default: Date.now
     },
     isCritic: {
         type: Boolean,
         default: false
     }
-
 });
 
 mongoose.model('Author', AuthorSchema);
