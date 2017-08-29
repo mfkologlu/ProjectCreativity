@@ -11,7 +11,7 @@ before(function (done) {
     });
 
     mongoose.connection.once('open', function () {
-        console.log('Connected sucessfully to database');
+        console.log('Connected sucessfully to test database');
         done();
     }).on('error', function (error) {
         console.warn('Error', error);
@@ -19,3 +19,8 @@ before(function (done) {
 });
 
 
+beforeEach(function(done){
+    mongoose.connection.collections.authors.drop(function(){
+        done();
+    });
+});

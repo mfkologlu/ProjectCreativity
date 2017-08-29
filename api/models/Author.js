@@ -16,7 +16,7 @@ var AuthorSchema = new mongoose.Schema({
     username: String,
     password: String,
     skills: {
-        type: [SkillSchema],
+        type: [ SkillSchema],
         default: defaultSkills
     },
     created_date:{
