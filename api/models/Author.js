@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var defaultSkills = require('./DefaultSkills');
+var defaultSkills = require('../utils/DefaultSkills');
 
 //Embedded skill schema for Author
 var SkillSchema = new mongoose.Schema({
