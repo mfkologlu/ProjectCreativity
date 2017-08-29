@@ -3,12 +3,21 @@
 Download and install Node and Npm from https://nodejs.org/en/.
 
 ## Install dependencies
-Enable gulp commands.
+Type the following command on terminal to download all project dependecies.
  - npm install 
  
  
-
-## Run server
-Enable gulp commands.
+## Run application
+Click  on to see results [a link](https://localhost:300/books).
  - npm run start 
+
+## Run unit tests
+Type the following command to run all tests under *test* folder.
+ - npm test 
+
+
+
+ ## Add a new dependecy to the project
+ -npm install [package_name] --save
+
 

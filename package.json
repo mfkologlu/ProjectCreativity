@@ -17,14 +17,14 @@
     "nodemon": "^1.11.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mfkologlu/ProjectCreativity.git"
   },
   "keywords": [
-    "game"
+    "game","creativity","fun"
   ],
   "author": "Arnold Asllani,M. Firat Kologlu\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D",
   "license": "ISC",
