@@ -8,7 +8,7 @@ Type the following command on terminal to download all project dependecies.
  
  
 ## Run application
-Click  on to see results [a link](https://localhost:300/books).
+Click  on to see all books [localhost:3000/books](https://localhost:300/books).
  - npm run start 
 
 ## Run unit tests
