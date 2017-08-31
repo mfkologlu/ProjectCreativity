@@ -1,7 +1,4 @@
-var express = require('express');
-var router = express.Router();
-var bodyParser = require('body-parser');
-router.use(bodyParser.urlencoded({ extended: true }));
+var router = require('../controllers/Router');
 var Book = require('../models/Book');
 
 // Creates a new book
