@@ -87,13 +87,13 @@ var BookSchema = new mongoose.Schema({
     },
     max: function () {
       if (this.storyType === 'short-story')
-        return 400;
+        return 600;
       else if (this.storyType == 'story')
         return 1000;
       else if (this.storyType === 'novel')
         return 1800;
       else
-        return 400;
+        return 600;
     }
   },
   reviews: {
