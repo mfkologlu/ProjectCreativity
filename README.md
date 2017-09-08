@@ -6,15 +6,15 @@ Download and install Node and Npm from https://nodejs.org/en/.
 Type the following command on terminal to download backend project dependecies.
  - npm install 
 
- Type the following command on terminal to download frondent project dependecies.
+ Type the following command on terminal to download frontend project dependecies.
  - cd frontend-app
  - npm install
  
  
 ## Run application
-###To run the server (you must be inside ProjectCreativity directory)
- - npm run start 
-###To run angular JS app (you must be inside ProjectCreativity/frontend-app/ directory)
+Server (you must be inside ProjectCreativity directory)
+ - npm run start
+Angular JS APP (you must be inside ProjectCreativity/frontend-app/ directory)
  - ng server --open
 
 ## Run unit tests
