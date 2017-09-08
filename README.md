@@ -14,7 +14,7 @@ Type the following command on terminal to download backend project dependecies.
 ## Run application
 Server (you must be inside ProjectCreativity directory)
  - npm run start
-Angular JS APP (you must be inside ProjectCreativity/frontend-app/ directory)
+\nAngular JS APP (you must be inside ProjectCreativity/frontend-app/ directory)
  - ng server --open
 
 ## Run unit tests
